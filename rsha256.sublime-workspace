@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"word",
+				"Wordbuffer2"
+			],
+			[
+				"wo",
+				"wordbuffer2"
+			],
+			[
+				"b",
+				"bytestowords"
+			],
+			[
 				"prt",
 				"println\tprintln!(…)"
 			],
@@ -22,10 +34,6 @@
 			[
 				"BLO",
 				"BLOCKNUM"
-			],
-			[
-				"word",
-				"wordbuffer"
 			],
 			[
 				"wor",
@@ -155,9 +163,19 @@
 			"file": "src/main.rs",
 			"settings":
 			{
-				"buffer_size": 1308,
+				"buffer_size": 3567,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/shafuncs.rs",
+			"settings":
+			{
+				"buffer_size": 1507,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "helperfuncs"
 			}
 		}
 	],
@@ -375,9 +393,14 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			" u32",
+			"Wrapped",
+			"(0x[a-f0-9]+)",
+			"chunksize_bytes",
+			"v",
 			"mod",
 			"\t\n",
 			"messageIndex",
@@ -389,9 +412,12 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			" Wrapping<u32>",
+			"Wrapping",
+			"Wrapped(\\1)"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -411,15 +437,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1308,
+						"buffer_size": 3567,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31,
-								31
+								3567,
+								3567
 							]
 						],
 						"settings":
@@ -427,10 +453,39 @@
 							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1498.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/shafuncs.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"auto_name": "helperfuncs",
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -493,12 +548,12 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{

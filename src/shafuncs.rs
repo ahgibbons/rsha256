@@ -1,34 +1,36 @@
-const WORDSIZE_BITS: u32 = 32;
+
+use std::num::Wrapping;
+const WORDSIZE_BITS: usize = 32;
 const ZEROPAD: u32 = 488;
 const CHUNKBITS: u32 = 512;
 const MLEN_BYTES: u32 = 8;
 
 
-fn rotr(x: u32, n: u32) -> u32 {
+fn rotr(x: Wrapping<u32>, n: usize) -> Wrapping<u32> {
 	(x >> n) | (x << (WORDSIZE_BITS - n) )
 }
 
-fn ch(x: u32, y: u32, z: u32) -> u32 {
+pub fn ch(x: Wrapping<u32>, y: Wrapping<u32>, z: Wrapping<u32>) -> Wrapping<u32> {
 	(x & y) ^ ((!x) & z)
 }
 
-fn maj(x: u32, y: u32, z: u32) -> u32 {
+pub fn maj(x: Wrapping<u32>, y: Wrapping<u32>, z: Wrapping<u32>) -> Wrapping<u32> {
 	(x & y) ^ (x & z) ^ (y & z)
 }
 
-fn S0(x: u32) -> u32 {
+pub fn S0(x: Wrapping<u32>) -> Wrapping<u32> {
 	rotr(x, 2) ^ rotr(x,13) ^ rotr(x,22)
 }
 
-fn S1(x: u32) -> u32 {
+pub fn S1(x: Wrapping<u32>) -> Wrapping<u32> {
 	rotr(x,6) ^ rotr(x,11) ^ rotr(x,22)
 }
 
-fn s0(x: u32) -> u32 {
+fn s0(x: Wrapping<u32>) -> Wrapping<u32> {
 	rotr(x,7) ^ rotr(x,18) ^ (x >> 3)
 }
 
-fn s1(x: u32) -> u32 {
+fn s1(x: Wrapping<u32>) -> Wrapping<u32> {
 	rotr(x,17) ^ rotr(x,19) ^ (x >> 10)
 }
 
@@ -51,6 +53,15 @@ pub fn padmessage(bytebuffer : &mut [u8], readbyte : usize, messagelength: u64) 
 		println!("{:08b}", v);
 	}
 
-	println!("Numzeros: {}",numzeros);
+}
 
+pub fn message_schedule(wordbuffer: [Wrapping<u32>; 16]) -> [Wrapping<u32>; 64] {
+	let mut ms: [Wrapping<u32>; 64] = [Wrapping(0); 64];
+	ms[..16].clone_from_slice(&wordbuffer);
+	println!("{:?}", wordbuffer);
+	for i in ms.iter() {
+		println!("{}", i);
+	}
+
+	ms
 }
