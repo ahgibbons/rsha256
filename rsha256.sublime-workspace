@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"K",
+				"K2"
+			],
+			[
+				"mac",
+				"macro_rules\tmacro_rules! … { … }"
+			],
+			[
 				"word",
 				"Wordbuffer2"
 			],
@@ -163,7 +171,7 @@
 			"file": "src/main.rs",
 			"settings":
 			{
-				"buffer_size": 3567,
+				"buffer_size": 3393,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -172,7 +180,7 @@
 			"file": "src/shafuncs.rs",
 			"settings":
 			{
-				"buffer_size": 1507,
+				"buffer_size": 1542,
 				"encoding": "UTF-8",
 				"line_ending": "Unix",
 				"name": "helperfuncs"
@@ -363,8 +371,8 @@
 	},
 	"file_history":
 	[
-		"/home/andrewsim/cprojects/csha256/sha256const.h",
 		"/home/andrewsim/cprojects/csha256/sha256const.c",
+		"/home/andrewsim/cprojects/csha256/sha256const.h",
 		"/home/andrewsim/cprojects/csha256/sha256Funcs.c",
 		"/home/andrewsim/cprojects/csha256/sha256Funcs.h",
 		"/home/andrewsim/cprojects/csha256/src/main.c",
@@ -396,6 +404,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Wrapping\\((0x[0-9a-f]+)\\)",
 			" u32",
 			"Wrapped",
 			"(0x[a-f0-9]+)",
@@ -415,6 +424,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"$1",
 			" Wrapping<u32>",
 			"Wrapping",
 			"Wrapped(\\1)"
@@ -428,7 +438,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -437,26 +447,27 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3567,
+						"buffer_size": 3393,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3567,
-								3567
+								1993,
+								1993
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax"
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1498.0,
+						"translation.y": 1983.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -465,27 +476,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1507,
+						"buffer_size": 1542,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								51,
-								51
+								637,
+								637
 							]
 						],
 						"settings":
 						{
 							"auto_name": "helperfuncs",
-							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax"
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 810.0,
+						"translation.y": 734.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -534,7 +546,7 @@
 	"project": "rsha256.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":
