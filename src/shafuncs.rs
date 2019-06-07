@@ -59,3 +59,19 @@ pub fn message_schedule(wordbuffer: [Wrapping<u32>; 16]) -> [Wrapping<u32>; 64] 
 
 	ms
 }
+
+pub fn bytestowords(bytebuffer: [u8; CHUNKBYTES]) -> [Wrapping<u32>; 16] {
+	let mut wordbuffer: [Wrapping<u32>; 16] = [Wrapping(0);16];
+	let mut v: Wrapping<u32>;
+	for i in 0..16 {
+		v=Wrapping(0);
+		v += Wrapping(bytebuffer[4*i] as u32) << (3*8);
+		v += Wrapping(bytebuffer[4*i+1] as u32) << (2*8);
+		v += Wrapping(bytebuffer[4*i+2] as u32) << (1*8);
+		v += Wrapping(bytebuffer[4*i+3] as u32);
+		wordbuffer[i] = v;
+ 	}
+
+ 	wordbuffer
+
+}

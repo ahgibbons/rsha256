@@ -4,6 +4,7 @@ use std::num::Wrapping;
 use std::env;
 
 mod shafuncs;
+use shafuncs::CHUNKBYTES;
 
 macro_rules! wraparray {
 	( $( $x:expr),* ) => {
@@ -16,7 +17,7 @@ fn main() {
 	let filename = &args[1];
 	let mut f = File::open(filename).expect("Could not open file.");
 
-	let mut buffer: [u8; 64] = [0; 64];
+	let mut buffer: [u8; CHUNKBYTES] = [0; CHUNKBYTES];
 	let mut readlen;
 	let mut messagelength : u64 = 0;
 
@@ -31,7 +32,7 @@ fn main() {
 			0x5be0cd19];
 
 
-	while {readlen = f.read(&mut buffer).expect("Could not read from file!"); readlen==shafuncs::CHUNKBYTES} {
+	while {readlen = f.read(&mut buffer).expect("Could not read from file!"); readlen==CHUNKBYTES} {
 		messagelength += readlen as u64;
 		hashround(&mut digest, buffer)
 	}
@@ -48,11 +49,11 @@ fn main() {
 
 
 
-fn hashround(digest: &mut [Wrapping<u32>; 8], bytebuffer: [u8; 64]) {
+fn hashround(digest: &mut [Wrapping<u32>; 8], bytebuffer: [u8; CHUNKBYTES]) {
 	let mut t1: Wrapping<u32>;
 	let mut t2: Wrapping<u32>;
 
-	let wordbuffer = bytestowords(bytebuffer);
+	let wordbuffer = shafuncs::bytestowords(bytebuffer);
 
 	// Message Schedule
 	let w = shafuncs::message_schedule(wordbuffer);
@@ -93,21 +94,6 @@ fn hashround(digest: &mut [Wrapping<u32>; 8], bytebuffer: [u8; 64]) {
 
 }
 
-fn bytestowords(bytebuffer: [u8; 64]) -> [Wrapping<u32>; 16] {
-	let mut wordbuffer: [Wrapping<u32>; 16] = [Wrapping(0);16];
-	let mut v: Wrapping<u32>;
-	for i in 0..16 {
-		v=Wrapping(0);
-		v += Wrapping(bytebuffer[4*i] as u32) << (3*8);
-		v += Wrapping(bytebuffer[4*i+1] as u32) << (2*8);
-		v += Wrapping(bytebuffer[4*i+2] as u32) << (1*8);
-		v += Wrapping(bytebuffer[4*i+3] as u32);
-		wordbuffer[i] = v;
- 	}
-
- 	wordbuffer
-
-}
 
 
 const K: [Wrapping<u32>; 64] = wraparray![
